@@ -1,4 +1,4 @@
-const dialogueQuestions = [3, 5, 7, 9, 11];
+const dialogueQuestions = [7, 9, 11, 13, 15]; // This determines which dialogue options corresponds to questions
 
 function startScreen() {
   background(backgroundImg);
@@ -53,8 +53,7 @@ function characterCreation() {
     // Show dialogue
     skipButton.visible = true;
     text(
-      "Everything will make sense soon. In the meantime, this is a placeholder for some awesome dialogue " +
-        dialogueOption,
+      dialogue[dialogueOption],
       100,
       100,
       windowWidth - 120
