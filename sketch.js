@@ -20,6 +20,7 @@ let ringsPerLvl = 8;
 let attributes;
 let maxAttribute = null;
 let scene = 0;
+let dialogue;
 let questions;
 let lessons;
 let startButton;
@@ -54,6 +55,7 @@ function loadAttributes() {
 function preload() {
   backgroundImg = loadImage("assets/main_screen.jpg");
   mainFont = loadFont("assets/fonts/DMMono-Medium.ttf");
+  dialogue = loadStrings('assets/dialogue.txt');
   questions = loadJSON("assets/questions.json", (callback = loadAttributes));
   lessons = loadJSON("assets/lessons.json");
   mainSoundtrack.fadeOut = 3;
@@ -123,7 +125,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   textFont(mainFont);
-  textSize(34);
+  textSize(38);
   gui = createGui();
   gui.setStrokeWeight(0);
 
@@ -172,12 +174,11 @@ function draw() {
     }
     push();
     textSize(20);
-    text("Current LvL: " + currentLvl, 40, 50);
-    text("Humor: " + blob.player.attributes["humor"], 40, 80);
-    text("Empathy: " + blob.player.attributes["empathy"], 40, 110);
-    text("Optimism: " + blob.player.attributes["optimism"], 40, 140);
-    text("Ambition: " + blob.player.attributes["ambition"], 40, 170);
-    text("Creativity: " + blob.player.attributes["creativity"], 40, 200);
+    text("Humor: " + blob.player.attributes["humor"], 40, 50);
+    text("Empathy: " + blob.player.attributes["empathy"], 40, 80);
+    text("Optimism: " + blob.player.attributes["optimism"], 40, 110);
+    text("Ambition: " + blob.player.attributes["ambition"], 40, 140);
+    text("Creativity: " + blob.player.attributes["creativity"], 40, 170);
 
     if (blob.goals.length === 0) {
       blob.createGoal();
